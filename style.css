@@ -1,0 +1,81 @@
+/* FLIP Kitchen pages: "the pass" palette, ticket paper on a counter. */
+:root {
+  --counter: #EDE9DF;
+  --paper: #FBF9F3;
+  --ink: #141414;
+  --fade: #6B675E;
+  --rule: #C9C3B5;
+  --signal: #D52F1B;
+  --face: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --print: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --counter: #121211;
+    --paper: #22211E;
+    --ink: #F1EDE2;
+    --fade: #A29D90;
+    --rule: #45423B;
+    --signal: #F0533F;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--counter);
+  color: var(--ink);
+  font: 16px/1.6 var(--print);
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+header img { width: 44px; height: 44px; border-radius: 10px; }
+.wordmark {
+  font: 900 20px/1 var(--face);
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+nav { margin-left: auto; display: flex; gap: 16px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; }
+nav a { color: var(--fade); text-decoration: none; }
+nav a[aria-current="page"], nav a:hover { color: var(--ink); }
+
+.ticket {
+  background: var(--paper);
+  padding: 32px 24px 28px;
+  /* Perforated top edge, like a ticket torn off a roll. */
+  -webkit-mask: radial-gradient(circle 4px at 7px 0, transparent 98%, #000) 0 0 / 14px 100% repeat-x;
+          mask: radial-gradient(circle 4px at 7px 0, transparent 98%, #000) 0 0 / 14px 100% repeat-x;
+}
+.kicker { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--signal); margin: 0 0 8px; }
+h1 {
+  font: 900 clamp(34px, 8vw, 52px)/0.95 var(--face);
+  font-stretch: condensed;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+h2 {
+  font: 900 22px/1.1 var(--face);
+  font-stretch: condensed;
+  text-transform: uppercase;
+  margin: 32px 0 8px;
+  padding-top: 10px;
+  border-top: 2px solid var(--ink);
+}
+.updated { color: var(--fade); font-size: 13px; margin: 0 0 8px; }
+p, li { margin: 0 0 12px; }
+ul { padding-left: 20px; }
+a { color: var(--signal); }
+.lede { font-size: 17px; }
+.note { border-left: 3px solid var(--signal); padding-left: 12px; color: var(--fade); }
+footer { margin-top: 28px; font-size: 13px; color: var(--fade); }
+.cards { display: grid; gap: 12px; margin-top: 20px; }
+.card {
+  display: block; padding: 18px 20px; background: var(--counter);
+  border: 2px solid var(--ink); color: var(--ink); text-decoration: none;
+}
+.card strong { font: 900 22px/1.1 var(--face); font-stretch: condensed; text-transform: uppercase; display: block; }
+.card span { color: var(--fade); font-size: 14px; }
+.card:hover { background: var(--ink); color: var(--paper); }
+.card:hover span { color: var(--rule); }
